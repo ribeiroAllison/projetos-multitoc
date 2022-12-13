@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./resources/css/calculator.css">
+    <title>Calculadora de Peso Específico</title>
+    
+</head>
+<body>
+
+    <!-- HEADER SECTION -->
+    <header>
+        <a href="./index.html"><img src="https://multitoc.com.br/wp-content/uploads/2021/08/LOGO-MULTITOC-GRANDE-PRETA-1024x266.png"></a>
+        <h1>CALCULADORA DE PESO ESPECÍFICO</h1>
+    </header>
+
+    <!-- MAIN SECTION -->
+    <main>
+        
+        <!-- METAL TYPE FORM -->
+        <form class="card" id="metals">
+            <div>
+                <h1>Tipo de Metal</h1><br>
+            </div>
+            <div>
+                <input type="radio" value="cca" name="metais" class="radio">
+                <label for="cca">CCAM</label>
+                <input type="radio" value="ccs" name="metais" class="radio">
+                <label for="ccs">AÇO</label>
+                <input type="radio" value="cu" name="metais" class="radio">
+                <label for="cu">COBRE</label>
+            </div>
+
+        </form>
+
+        <!-- PARAMETERS FORM -->
+        <form class="card numbers">
+            <h1>Parâmetros:</h1>
+            <h2>Diâmetro do fio (mm)</h2>
+            <input type="number" id="diameter" placeholder="Bitola">
+            
+            <h2>Quantidade de fios</h2>
+            <input type="number" id="wires" placeholder="Número de fios">
+
+            <h2>Metragem do Cabo</h2>
+            <input type="number" id="metro" placeholder="Comprimento">
+        
+                        
+        </form>
+            
+        
+        <!-- RESULTS FORM -->
+        <form class="card numbers results">
+            <h1>Resultados:</h1><br>
+            <h2>Peso Específico</h2>
+            <input type="text" id="espec" disabled>
+
+            <h2>Peso no Cabo</h2>
+            <input type="text" id="pesoCabo" disabled>
+        </form>
+        
+        
+    </main>
+
+    <!-- BUTTON SECTION -->
+    <div id="buttons">
+        <a href="./index.html"><button id="home">Voltar</button></a>
+        <button id="erase">Limpar</button>
+        <button id="calculate" onclick="getVariables(); calculaEspec(); pesoRolo()">Calcular</button>
+    </div>
+    
+    
+    <script src="./density-calculator.js"></script>
+</body>
+</html>
