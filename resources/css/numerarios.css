@@ -11,6 +11,8 @@ h1{
     font-size: 35px;
 }
 
+
+
 /* HEADER SECTION */
 
 header{
@@ -136,6 +138,10 @@ tbody .resEdit {
 
 td, .resData{
     background-color: lightgray;
+}
+
+.resData, .resEdit{
+    text-align: center;
 }
 
 
