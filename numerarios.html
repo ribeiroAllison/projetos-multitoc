@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./resources/css/numerarios.css">
+    <title>Cálculo de Numerários</title>
+</head>
+<body>
+    <header>
+        <a href="./index.html"><img src="https://multitoc.com.br/wp-content/uploads/2021/08/LOGO-MULTITOC-GRANDE-PRETA-1024x266.png"></a>
+        <h1>Cálculo de Numerários</h1>
+    </header>
+    
+    <section id="parameters">
+        <table id="table1">
+            <thead>
+                <tr>
+                    <th colspan="4"><p>Impostos</p></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="type">II</td>
+                    <td><input type="number" class="data" step="0.01" id="II"></td>
+                    <td class="type">IPI</td>
+                    <td><input type="number" class="data" step="0.01" id="IPI"></td>
+                </tr>
+                <tr>
+                    <td class="type">PIS</td>
+                    <td><input type="number" class="data" step="0.01" value="2.1" id="PIS"></td>
+                    <td class="">COFINS</td>
+                    <td><input type="number" class="data" step="0.01" value="9.65" ID="COFINS"></td>
+                </tr>
+                <tr>
+                    <td class="type">ICMS</td>
+                    <td><input type="number" class="data" step="0.01" value="18" id="ICMS"></td>
+                    
+                </tr>
+
+            </tbody>
+        </table>
+
+        <table id="table2">
+            <thead>
+                <tr>
+                    <th colspan="4"><p>Outras despesas</p></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="type">NCM</td>
+                    <td><input type="text" class="data" step="0.01" id="NCM"></td>
+                    <td class="type">DÓLAR </td>
+                    <td><input type="number" class="data" step="0.01" id="dolar"></td>
+                    
+                </tr>
+                <tr>
+                    <td class="type">SISCOMEX</td>
+                    <td><input type="number" class="data" step="0.01" id="sis"></td>
+                    <td class="">AFRMM</td>
+                    <td><input type="number" class="data" step="0.01" id="mar"></td>
+                </tr>
+                <tr>
+                    <td class="type">FRETE USD</td>
+                    <td><input type="number" class="data" step="0.01" id="freight" value="1000"></td>
+                    <td class="type">CAPATAZIA USD</td>
+                    <td><input type="number" class="data" step="0.01" id="cap"></td>
+                </tr>
+                <tr>
+                    <td class="type">SEGURO USD</td>
+                    <td><input type="number" class="data" step="0.01" id="ins"></td>
+                    <td class="type">PESO LÍQ.</td>
+                    <td><input type="number" class="data" step="0.01" id="weight" value="100"></td>
+                </tr>
+                
+
+            </tbody>
+        </table>
+        
+        <div id="buttons">
+            <button id="calculate" onclick="populate()">Calcular</button>
+            <button id="erase">Limpar</button>
+            <a href="./index.html"><button id="home">Voltar</button></a>
+        </div>
+        
+
+    </section>
+
+    <section id="results">
+        <table id="result-table">
+            <thead>
+                <th>Natureza</th>
+                <th>FOB</th>
+                <th>Valor Aduaneiro</th>
+                <th>II</th>
+                <th>IPI</th>
+                <th>PIS</th>
+                <th>COFINS</th>
+                <th>ICMS</th>
+                <th>Peso Líquido</th>
+                <th>Frete</th>
+                <th>Capatazia</th>
+                <th>Seguro</th>
+            </thead>
+            <tbody id="resTbody">
+                <tr id="row" class="row">
+                    <td class="resEdit">
+                        <select class="resNat resEdit">
+                            <option>Isento de ICMS</option>
+                            <option>Com ICMS</option>
+                        </select>
+                    </td>
+                    <td class="resEdit"><input type="number" class="resFOB resEdit"></td>
+                    <td><input type="number" class="resVA resData" disabled></td>
+                    <td><input type="number" class="resII resData" disabled></td>
+                    <td><input type="number" class="resIPI resData" disabled></td>
+                    <td><input type="number" class="resPIS resData" disabled></td>
+                    <td><input type="number" class="resCOFINS resData" disabled></td>
+                    <td><input type="number" class="resICMS resData" disabled></td>
+                    <td class="resEdit"><input type="number" class="resPeso resEdit"></td>
+                    <td><input type="number" class="resFreight resData" disabled></td>
+                    <td><input type="number" class="resCap resData" disabled></td>
+                    <td><input type="number" class="resIns resData" disabled></td>
+
+                </tr>
+                
+            </tbody>
+        </table>
+
+    </section>
+    <button onclick="inserir()" id="inserir">Inserir Linha</button>
+    <script src="./numerarios.js"></script>
+</body>
+</html>
