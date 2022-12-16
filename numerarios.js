@@ -87,6 +87,7 @@ function calculate(){
   }
 }
 
+let fixedRowVA;
 function populate(){
   calculate();
   for(let j = 1; j < document.getElementsByClassName('row').length; j++){
@@ -96,7 +97,8 @@ function populate(){
 
     let rowFOB = document.querySelector(`#row${j} .resFOB`).value
     let rowVA = (Number(rowFOB) + Number(freightList[j-1]) + Number(capList[j-1]) + Number(insList[j-1])) * expDolar;
-    document.querySelector(`#row${j} .resVA`).value = rowVA.toFixed(2);
+    fixedRowVA = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(rowVA);
+    document.querySelector(`#row${j} .resVA`).value = fixedRowVA;
     let rowII = Number(rowVA) * (Number(taxII)/100);
     document.querySelector(`#row${j} .resII`).value = rowII.toFixed(2);
     let rowIPI = (Number(rowVA) + Number(rowII)) * (Number(taxIPI)/100);
