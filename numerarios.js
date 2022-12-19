@@ -34,7 +34,6 @@ function getVariables(){
 
   //table 2 - EXPENSES
 
- 
   expDolar = document.getElementById('dolar').value;
   expSIS = document.getElementById('sis').value;
   expFreight = document.getElementById('freight').value;
@@ -62,6 +61,7 @@ let rateIPI = 0;
 let ratePIS = 0;
 let rateCOFINS = 0;
 let rateICMS = 0;
+let nature = '';
 
 // Array of expense variables to receive the data when the row is created and functions bellow are called
 let freightList = [];
@@ -73,6 +73,7 @@ let IPIList = [];
 let PISList = [];
 let COFINSList = [];
 let ICMSList = [];
+let natureList = [];
 
 
 
@@ -87,6 +88,7 @@ function calculate(){
   PISList = [];
   COFINSList = [];
   ICMSList = [];
+  natureList = [];
 
   for(let i = 1; i < document.getElementsByClassName('row').length; i++){
     rateII = document.querySelector(`#row${i} .rateII`).value;
@@ -99,6 +101,8 @@ function calculate(){
     COFINSList.push(rateCOFINS);
     rateICMS = document.querySelector(`#row${i} .rateICMS`).value;
     ICMSList.push(rateICMS);
+    nature = document.querySelector(`#row${i} .resNat`).value;
+    natureList.push(nature);
 
     fob = document.querySelector(`#row${i} .resFOB`).value;
     fobList.push(fob);
@@ -138,7 +142,7 @@ function populate(){
   calculate();
 
   for(let j = 1; j < document.getElementsByClassName('row').length; j++){
-    
+
     const fixedFreight = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'USD'}).format(freightList[j-1]);
     document.querySelector(`#row${j} .resFreight`).value = fixedFreight;
 
@@ -162,14 +166,23 @@ function populate(){
     const rowPIS = Number(rowVA) * (Number(PISList[j-1])/100);
     const fixedRowPIS = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(rowPIS);
     document.querySelector(`#row${j} .resPIS`).value = fixedRowPIS;
-    
+
     const rowCOFINS = Number(rowVA) * (Number(COFINSList[j-1])/100);
     const fixedRowCOFINS = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(rowCOFINS);
     document.querySelector(`#row${j} .resCOFINS`).value = fixedRowCOFINS;
 
+    let ICMS;
+    if(natureList[j-1] === "Isento de ICMS"){
+      ICMS= 0;
+    } else{
+      ICMS = ((rowVA + rowII + rowIPI + rowPIS + rowCOFINS) / (1 - (Number(ICMSList[j-1])/100))) * (Number(ICMSList[j-1])/100)
 
+    }
 
-    
+    const rowICMS = ICMS;
+    const fixedRowICMS = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(rowICMS);
+    document.querySelector(`#row${j} .resICMS`).value = fixedRowICMS;
+
     
   }
 }
