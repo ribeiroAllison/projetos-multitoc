@@ -14,34 +14,7 @@
     </header>
     
     <section id="parameters">
-        <table id="table1">
-            <thead>
-                <tr>
-                    <th colspan="4"><p>Impostos</p></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="type">II</td>
-                    <td><input type="number" class="data" step="0.01" id="II"></td>
-                    <td class="type">IPI</td>
-                    <td><input type="number" class="data" step="0.01" id="IPI"></td>
-                </tr>
-                <tr>
-                    <td class="type">PIS</td>
-                    <td><input type="number" class="data" step="0.01" value="2.1" id="PIS"></td>
-                    <td class="">COFINS</td>
-                    <td><input type="number" class="data" step="0.01" value="9.65" ID="COFINS"></td>
-                </tr>
-                <tr>
-                    <td class="type">ICMS</td>
-                    <td><input type="number" class="data" step="0.01" value="18" id="ICMS"></td>
-                    
-                </tr>
-
-            </tbody>
-        </table>
-
+        
         <table id="table2">
             <thead>
                 <tr>
@@ -92,8 +65,14 @@
         <table id="result-table">
             <thead>
                 <th>Natureza</th>
+                <th>N.C.M.</th>
                 <th>FOB</th>
                 <th>Peso Líquido</th>
+                <th>II</th>
+                <th>IPI</th>
+                <th>PIS</th>
+                <th>COFINS</th>
+                <th>ICMS</th>
                 <th>Valor Aduaneiro</th>
                 <th>II</th>
                 <th>IPI</th>
@@ -101,7 +80,6 @@
                 <th>COFINS</th>
                 <th>ICMS</th>
                 <th>Frete</th>
-                <th>Capatazia</th>
                 <th>Seguro</th>
             </thead>
             <tbody id="resTbody">
@@ -112,8 +90,14 @@
                             <option>Com ICMS</option>
                         </select>
                     </td>
+                    <td class="resEdit"><input type="number" class="resNCM resEdit"></td>
                     <td class="resEdit"><input type="number" class="resFOB resEdit"></td>
                     <td class="resEdit"><input type="number" class="resPeso resEdit"></td>
+                    <td class="resEdit"><input type="number" class="rateII resEdit"></td>
+                    <td class="resEdit"><input type="number" class="rateIPI resEdit"></td>
+                    <td class="resEdit"><input type="number" class="ratePIS resEdit"></td>
+                    <td class="resEdit"><input type="number" class="rateCOFINS resEdit"></td>
+                    <td class="resEdit"><input type="number" class="rateICMS resEdit"></td>
                     <td><input type="text" class="resVA resData" disabled></td>
                     <td><input type="text" class="resII resData" disabled></td>
                     <td><input type="text" class="resIPI resData" disabled></td>
@@ -121,7 +105,6 @@
                     <td><input type="text" class="resCOFINS resData" disabled></td>
                     <td><input type="text" class="resICMS resData" disabled></td>
                     <td><input type="text" class="resFreight resData" disabled></td>
-                    <td><input type="text" class="resCap resData" disabled></td>
                     <td><input type="text" class="resIns resData" disabled></td>
 
                 </tr>
