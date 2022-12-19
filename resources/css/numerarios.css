@@ -11,6 +11,11 @@ h1{
     font-size: 35px;
 }
 
+input{
+    font-size: 1rem;
+}
+    
+
 
 
 /* HEADER SECTION */
@@ -104,6 +109,10 @@ thead th{
     background-color: rgb(192, 243, 192);
 }
 
+.data{
+    background-color: rgb(252, 239, 224);
+}
+
 #table1{
     height: 100px;
 }
@@ -144,6 +153,10 @@ td, .resData{
     text-align: center;
 }
 
+.resData{
+    color: rgb(85, 85, 85);
+    
+}
 
 
 

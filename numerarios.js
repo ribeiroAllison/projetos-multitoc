@@ -83,30 +83,44 @@ function calculate(){
 
     
 
-    // document.querySelector(`#row${i} .resVA`).value = i;
+   
   }
 }
 
-let fixedRowVA;
+
 function populate(){
   calculate();
   for(let j = 1; j < document.getElementsByClassName('row').length; j++){
-    document.querySelector(`#row${j} .resFreight`).value = freightList[j-1];
-    document.querySelector(`#row${j} .resCap`).value = capList[j-1];
-    document.querySelector(`#row${j} .resIns`).value = insList[j-1];
+    const fixedFreight = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'USD'}).format(freightList[j-1]);
+    document.querySelector(`#row${j} .resFreight`).value = fixedFreight;
 
-    let rowFOB = document.querySelector(`#row${j} .resFOB`).value
-    let rowVA = (Number(rowFOB) + Number(freightList[j-1]) + Number(capList[j-1]) + Number(insList[j-1])) * expDolar;
-    fixedRowVA = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(rowVA);
+    const fixedCap = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'USD'}).format(capList[j-1]);
+    document.querySelector(`#row${j} .resCap`).value = fixedCap;
+
+    const fixedIns = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'USD'}).format(insList[j-1]);
+    document.querySelector(`#row${j} .resIns`).value = fixedIns;
+
+    const rowFOB = document.querySelector(`#row${j} .resFOB`).value
+
+    const rowVA = (Number(rowFOB) + Number(freightList[j-1]) + Number(capList[j-1]) + Number(insList[j-1])) * expDolar;
+    const fixedRowVA = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(rowVA);
     document.querySelector(`#row${j} .resVA`).value = fixedRowVA;
-    let rowII = Number(rowVA) * (Number(taxII)/100);
-    document.querySelector(`#row${j} .resII`).value = rowII.toFixed(2);
-    let rowIPI = (Number(rowVA) + Number(rowII)) * (Number(taxIPI)/100);
-    document.querySelector(`#row${j} .resIPI`).value = rowIPI.toFixed(2);
-    let rowPIS = Number(rowVA) * (Number(taxPIS)/100);
-    document.querySelector(`#row${j} .resPIS`).value = rowPIS.toFixed(2);
-    let rowCOFINS = Number(rowVA) * (Number(taxCOFINS)/100);
-    document.querySelector(`#row${j} .resCOFINS`).value = rowCOFINS.toFixed(2);
+
+    const rowII = Number(rowVA) * (Number(taxII)/100);
+    const fixedRowII = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(rowII);
+    document.querySelector(`#row${j} .resII`).value = fixedRowII;
+
+    const rowIPI = (Number(rowVA) + Number(rowII)) * (Number(taxIPI)/100);
+    const fixedRowIPI = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(rowIPI);
+    document.querySelector(`#row${j} .resIPI`).value = fixedRowIPI;
+
+    const rowPIS = Number(rowVA) * (Number(taxPIS)/100);
+    const fixedRowPIS = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(rowPIS);
+    document.querySelector(`#row${j} .resPIS`).value = fixedRowPIS;
+    
+    const rowCOFINS = Number(rowVA) * (Number(taxCOFINS)/100);
+    const fixedRowCOFINS = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(rowCOFINS);
+    document.querySelector(`#row${j} .resCOFINS`).value = fixedRowCOFINS;
 
 
 
