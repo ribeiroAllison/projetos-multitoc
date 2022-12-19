@@ -113,9 +113,6 @@ thead th{
     background-color: rgb(252, 239, 224);
 }
 
-#table1{
-    height: 100px;
-}
 .data{
     width: 85%;
 }
@@ -163,6 +160,10 @@ td, .resData{
 /* RESULT TABLE SECTION */
 #results{
     margin-left: 1%;
+}
+
+.tax{
+    width: 60px;
 }
 
 /* MAIN MEDIA QUERY */

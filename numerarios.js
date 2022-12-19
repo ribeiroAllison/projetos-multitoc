@@ -11,13 +11,6 @@ function inserir(){
 
 // declaring variable inputs
 
-// table 1 - TAXES
-let taxII = 0;
-let taxIPI =  0;
-let taxPIS =  0;
-let taxCOFINS = 0;
-let taxICMS = 0;
-
 
 //table 2 - EXPENSES
 
@@ -37,18 +30,11 @@ let expWeight = 0;
 function getVariables(){
 
 // Getting data from user input
-  
-// table 1 - TAXES 
-  taxII = document.getElementById('II').value;
-  taxIPI = document.getElementById('IPI').value;
-  taxPIS = document.getElementById('PIS').value;
-  taxCOFINS = document.getElementById('COFINS').value;
-  taxICMS = document.getElementById('ICMS').value;
 
 
   //table 2 - EXPENSES
 
-  expNCM = document.getElementById('NCM').value;
+ 
   expDolar = document.getElementById('dolar').value;
   expSIS = document.getElementById('sis').value;
   expFreight = document.getElementById('freight').value;
@@ -114,12 +100,6 @@ function calculate(){
     rateICMS = document.querySelector(`#row${i} .rateICMS`).value;
     ICMSList.push(rateICMS);
 
-    
-
-  }
-
-  // Loop through all the rows created by user
-  for(let i = 1; i < document.getElementsByClassName('row').length; i++){
     fob = document.querySelector(`#row${i} .resFOB`).value;
     fobList.push(fob);
     
@@ -132,8 +112,10 @@ function calculate(){
     capList.push(rowCap);
     
 
+    
 
   }
+
 
   //sum up all Fob variables from DOM
   for (value of fobList){
@@ -156,6 +138,7 @@ function populate(){
   calculate();
 
   for(let j = 1; j < document.getElementsByClassName('row').length; j++){
+    
     const fixedFreight = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'USD'}).format(freightList[j-1]);
     document.querySelector(`#row${j} .resFreight`).value = fixedFreight;
 
