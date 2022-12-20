@@ -130,6 +130,7 @@ thead th{
 
 #table2{
     margin-top: 20px;
+    
 }
 
 #table2 .data{
@@ -181,6 +182,20 @@ td, .resData{
         flex-direction: column;
         
     }
+
+    #table2{
+        margin: auto;
+        width: 100%;
+    }
+
+    #table2 .data{
+        width: 70px;
+        height: 40px;
+    }
+
+    
+    
+
 }
 
 
@@ -241,7 +256,7 @@ button:hover{
         width: 100%;
         justify-content: flex-start;
         gap: 20px;
-        flex-direction: row;
+        flex-direction: column;
         
     
     }
