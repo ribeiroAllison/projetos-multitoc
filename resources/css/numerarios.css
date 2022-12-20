@@ -175,7 +175,7 @@ td, .resData{
 }
 
 /* MAIN MEDIA QUERY */
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 850px){
     main{
         
         display: flex;
@@ -193,7 +193,9 @@ td, .resData{
         height: 40px;
     }
 
-    
+    #totals{
+        margin-bottom: 20px;
+    }
     
 
 }
@@ -265,6 +267,15 @@ button:hover{
         height: 80px;
         width:113px;
         padding: 0;
+    }
+
+    #inserir{
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        
     }
 
 
