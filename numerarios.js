@@ -1,6 +1,6 @@
 const tbodyElement = document.getElementById('resTbody'); // the tbody element where to add the new rows
 
-// Function to create a new row to be filled and 
+// Function to create a new row to be filled
 function inserir(){
   let createRow = document.getElementById('row').cloneNode(true);
   tbodyElement.appendChild(createRow);
@@ -23,7 +23,7 @@ let expCap =  0;
 let expIns =  0;
 let expWeight = 0;
 
-// table 3 - results
+
 
 
 
@@ -90,6 +90,14 @@ function calculate(){
   ICMSList = [];
   natureList = [];
 
+  //iterate through row class array and extract the values encountered to a new array outside the loop, declared above
+  //this way all the inputs from each row the user filled will be stored on its own array above, in order of rows IDs
+  //The ID of the rows start with 1 and increase by 1 for each new created row
+  //So the first row will have the id #row1, the second #row2 and so on
+  //With this system the data stored in the arrays above will be located in the index i-1 in comparisson to IDs
+  //For example, data from row1 will be store in correspondent arrays[0], like freightList[0] corresponds to inputs on row1
+  //freightList[1] corresponds to freight input of row2 etc
+
   for(let i = 1; i < document.getElementsByClassName('row').length; i++){
     rateII = document.querySelector(`#row${i} .rateII`).value;
     IIList.push(rateII);
@@ -103,7 +111,6 @@ function calculate(){
     ICMSList.push(rateICMS);
     nature = document.querySelector(`#row${i} .resNat`).value;
     natureList.push(nature);
-
     fob = document.querySelector(`#row${i} .resFOB`).value;
     fobList.push(fob);
     
@@ -122,9 +129,11 @@ function calculate(){
 
 
   //sum up all Fob variables from DOM
-  for (value of fobList){
-    totalFOB += Number(value);
-  };
+  
+    totalFOB = fobList.reduce((accumulator, currentValue) =>{
+      return accumulator + currentValue;
+    });
+  
 
   for(let i = 1; i < document.getElementsByClassName('row').length; i++){
     fobRatio = document.querySelector(`#row${i} .resFOB`).value/totalFOB;
