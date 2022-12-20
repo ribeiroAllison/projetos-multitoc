@@ -196,6 +196,10 @@ td, .resData{
     #totals{
         margin-bottom: 20px;
     }
+
+    .resData{
+        color:black;
+    }
     
 
 }
