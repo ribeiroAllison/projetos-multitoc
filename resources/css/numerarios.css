@@ -181,11 +181,11 @@ td, .resData{
 
 /* BUTTON SECTION */
 
-#buttons{
+.buttons{
     
     display: flex;
     flex-direction: column;
-    align-items: center;
+    
 
     
     
@@ -211,14 +211,27 @@ button{
 #inserir{
     width: 180px;
     margin-left: 1%;
+    display: block;
+}
+
+#inserir img{
+    margin-right: 10px;
 }
 
 button:hover{
     background-color: rgba(220, 20, 60, 0.699);
 }
 
+.buttons img{
+    width: 20px;
+    height: auto;
+    margin-right: 2px;
+    
+
+}
+
 @media only screen and (max-width: 600px){
-    #buttons{
+    .buttons{
         margin-bottom: 30px;
         margin-top: 30px;
         width: 100%;
@@ -233,7 +246,7 @@ button:hover{
         padding: 0;
     }
 
-    #buttons a{
+    .buttons a{
         margin-left: 5%;
         
         

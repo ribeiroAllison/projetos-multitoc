@@ -131,7 +131,7 @@ function calculate(){
   //sum up all Fob variables from DOM
   
     totalFOB = fobList.reduce((accumulator, currentValue) =>{
-      return accumulator + currentValue;
+      return Number(accumulator) + Number(currentValue);
     });
   
 

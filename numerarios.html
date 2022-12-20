@@ -51,10 +51,14 @@
             </tbody>
         </table>
         
-        <div id="buttons">
-            <button id="calculate" onclick="populate()">Calcular</button>
-            <button id="erase" onclick="limpar()">Limpar</button>
-            <a href="./index.html"><button id="home">Voltar</button></a>
+        <div class="buttons">
+            <button id="calculate" onclick="populate()"><img src="./resources/img/robot.svg">Calcular</button>
+            <button id="erase" onclick="window.print()"><img src="./resources/img/printer.svg">Imprimir</button>
+        </div>
+
+        <div class="buttons">
+            <button id="erase" onclick="limpar()"><img src="./resources/img/shower.svg">Limpar</button>
+            <a href="./index.html"><button id="home"><img src="./resources/img/home.svg">Voltar</button></a>
         </div>
         
 
@@ -112,7 +116,7 @@
         </table>
 
     </section>
-    <button onclick="inserir()" id="inserir">Inserir Linha</button>
+    <button class="buttons" onclick="inserir()" id="inserir"><img src="./resources/img/plus.svg">Inserir Linha</button>
     <section id="totals">
         <table>
             <thead>
