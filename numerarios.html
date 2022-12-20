@@ -53,7 +53,7 @@
         
         <div id="buttons">
             <button id="calculate" onclick="populate()">Calcular</button>
-            <button id="erase">Limpar</button>
+            <button id="erase" onclick="limpar()">Limpar</button>
             <a href="./index.html"><button id="home">Voltar</button></a>
         </div>
         
@@ -113,6 +113,50 @@
 
     </section>
     <button onclick="inserir()" id="inserir">Inserir Linha</button>
+    <section id="totals">
+        <table>
+            <thead>
+                <th>Despesas</th>
+                <th>Valores</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="type">II</td>
+                    <td><input type="text" class="resData" step="0.01" id="totalII" disabled></td>
+                </tr>
+                <tr>
+                    <td class="type">IPI</td>
+                    <td><input type="text" class="resData" step="0.01" id="totalIPI" disabled></td>
+                </tr>
+                <tr>
+                    <td class="type">PIS</td>
+                    <td><input type="text" class="resData" step="0.01" id="totalPIS" disabled></td>
+                </tr>
+                <tr>
+                    <td class="type">COFINS</td>
+                    <td><input type="text" class="resData" step="0.01" id="totalCOFINS" disabled></td>
+                </tr>
+                <tr>
+                    <td class="type">ICMS</td>
+                    <td><input type="text" class="resData" step="0.01" id="totalICMS" disabled></td>
+                </tr>
+                <tr>
+                    <td class="type">AFRMM</td>
+                    <td><input type="text" class="resData" step="0.01" id="totalMar" disabled></td>
+                </tr>
+                <tr>
+                    <td class="type">SISCOMEX</td>
+                    <td><input type="text" class="resData" step="0.01" id="totalSis" disabled></td>
+                </tr>
+                <tr>
+                    <td class="type totalExpenses">Total</td>
+                    <td><input type="text" class="resData totalExpenses" step="0.01" id="totalExpenses" disabled></td>
+                </tr>
+            </tbody>
+        </table>
+        
+
+    </section>
     <script src="./numerarios.js"></script>
 </body>
 </html>

@@ -242,4 +242,15 @@ button:hover{
 }
     
 
+/* TOTALS TABLE SECTION */
 
+#totals{
+    margin-top: 40px;
+    margin-left: 1%;
+}
+
+.totalExpenses{
+    background-color: rgb(255, 255, 0);
+    color: #303030;
+    font-weight: 800;
+}

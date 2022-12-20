@@ -140,6 +140,12 @@ function calculate(){
 
 function populate(){
   calculate();
+  let resII = [];
+  let resIPI = [];
+  let resPIS = [];
+  let resCOFINS = [];
+  let resICMS = [];
+  
 
   for(let j = 1; j < document.getElementsByClassName('row').length; j++){
 
@@ -158,18 +164,22 @@ function populate(){
     const rowII = Number(rowVA) * (Number(IIList[j-1])/100);
     const fixedRowII = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(rowII);
     document.querySelector(`#row${j} .resII`).value = fixedRowII;
+    resII.push(rowII);
 
     const rowIPI = (Number(rowVA) + Number(rowII)) * (Number(IPIList[j-1])/100);
     const fixedRowIPI = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(rowIPI);
     document.querySelector(`#row${j} .resIPI`).value = fixedRowIPI;
+    resIPI.push(rowIPI);
 
     const rowPIS = Number(rowVA) * (Number(PISList[j-1])/100);
     const fixedRowPIS = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(rowPIS);
     document.querySelector(`#row${j} .resPIS`).value = fixedRowPIS;
+    resPIS.push(rowPIS);
 
     const rowCOFINS = Number(rowVA) * (Number(COFINSList[j-1])/100);
     const fixedRowCOFINS = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(rowCOFINS);
     document.querySelector(`#row${j} .resCOFINS`).value = fixedRowCOFINS;
+    resCOFINS.push(rowCOFINS);
 
     let ICMS;
     if(natureList[j-1] === "Isento de ICMS"){
@@ -182,9 +192,60 @@ function populate(){
     const rowICMS = ICMS;
     const fixedRowICMS = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(rowICMS);
     document.querySelector(`#row${j} .resICMS`).value = fixedRowICMS;
+    resICMS.push(rowICMS);
 
     
   }
+
+  const totalII = resII.reduce((accumulator, currentValue) =>{
+    return accumulator + currentValue;
+  });
+  const totalIPI = resIPI.reduce((accumulator, currentValue) =>{
+    return accumulator + currentValue;
+  });
+  const totalPIS = resPIS.reduce((accumulator, currentValue) =>{
+    return accumulator + currentValue;
+  });
+  const totalCOFINS = resCOFINS.reduce((accumulator, currentValue) =>{
+    return accumulator + currentValue;
+  });
+  const totalICMS = resICMS.reduce((accumulator, currentValue) =>{
+    return accumulator + currentValue;
+  });
+
+  const totalExpenses = totalIPI + totalII + totalPIS + totalCOFINS + totalICMS + Number(expMar) + Number(expSIS);
+
+  document.getElementById('totalII').value = totalII.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+  document.getElementById('totalIPI').value = totalIPI.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+  document.getElementById('totalPIS').value = totalPIS.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+  document.getElementById('totalCOFINS').value = totalCOFINS.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+  document.getElementById('totalICMS').value = totalICMS.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+  document.getElementById('totalMar').value = Number(expMar).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+  document.getElementById('totalSis').value = Number(expSIS).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+  document.getElementById('totalExpenses').value = totalExpenses.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+  
+}
+
+function limpar(){
+  document.getElementById('totalII').value = '';
+  document.getElementById('totalIPI').value = '';
+  document.getElementById('totalPIS').value = '';
+  document.getElementById('totalCOFINS').value = '';
+  document.getElementById('totalICMS').value = '';
+  document.getElementById('totalMar').value = '';
+  document.getElementById('totalSis').value = '';
+  document.getElementById('totalExpenses').value = '';
+  document.getElementById('dolar').value = '';
+  document.getElementById('sis').value = '';
+  document.getElementById('freight').value = '';
+  document.getElementById('mar').value = '';
+  document.getElementById('cap').value = '';
+  document.getElementById('ins').value = '';
+  document.getElementById('weight').value = '';
+
+  location.reload();
+
+
 }
 
 
