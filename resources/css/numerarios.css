@@ -233,15 +233,15 @@ button{
     
 }
 
-#inserir{
+.buttons button, #inserir{
     width: 180px;
     margin-left: 1%;
-    display: block;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
 }
 
-#inserir img{
-    margin-right: 10px;
-}
 
 button:hover{
     background-color: rgba(220, 20, 60, 0.699);
@@ -250,10 +250,13 @@ button:hover{
 .buttons img{
     width: 20px;
     height: auto;
-    margin-right: 2px;
     
-
 }
+
+a{
+    text-decoration: none;
+}
+
 
 @media only screen and (max-width: 600px){
     .buttons{
