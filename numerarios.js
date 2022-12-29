@@ -9,6 +9,12 @@ function inserir(){
 
 }
 
+function deletar(){
+  const rowId ='#' + 'row' + (document.getElementsByClassName('row').length - 1);
+  const lastItem = document.querySelector(rowId);
+  return lastItem.remove();
+}
+
 // declaring variable inputs
 
 
